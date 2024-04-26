@@ -11,17 +11,23 @@ public class Jugador {
         int miJugada = this.lanzamiento();
         int suJugada = jugador.lanzamiento();
         String descripcion = "";
-
+     
         if(miJugada>suJugada){
             this.gana();
-            descripcion = "Gano " + this.nombre;
         } else if(miJugada<suJugada){
             jugador.gana();
-            descripcion = "Gano " + jugador.nombre;
         } else {
-            descripcion = "Empate!";
-        }
-        System.out.println(descripcion);
+            jugador.empate();
+        }  
+    }
+
+    private void empate() {
+        System.out.println("Empate");
+    }
+
+    private void gana(){
+        this.puntos++;
+        System.out.println("Gana " + this.nombre);
     }
 
     private int lanzamiento() {
