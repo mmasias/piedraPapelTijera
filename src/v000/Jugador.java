@@ -4,16 +4,17 @@ public class Jugador {
     private int puntos;
     private String nombre;
     private Pieza[] piezas;
-    private int[][] reglas = {
-            { 0, 1, 1 },
-            { -1, 0, -1 },
-            { -1, 1, 0 }
-    };
+    private int[][] reglas;
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.puntos = 0;
         this.piezas = Pieza.values();
+        this.reglas = new int[][] {
+                { 0, 1, 1 },
+                { -1, 0, -1 },
+                { -1, 1, 0 }
+        };
     }
 
     public void juegaCon(Jugador jugador) {
