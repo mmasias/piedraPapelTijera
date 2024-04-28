@@ -6,15 +6,28 @@ public class Jugador {
     private String nombre;
     private String[] piezas;
     private int[][] reglas = {
-            { 0, 1, 1 },
-            { -1, 0, -1 },
-            { -1, 1, 0 }
+        {0,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1},
+        {1,0,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1},
+        {1,1,0,-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1},
+        {1,1,1,0,-1,-1,-1,-1,-1,-1,-1,1,1,1,1},
+        {1,1,1,1,0,-1,-1,-1,-1,-1,-1,-1,1,1,1},
+        {1,1,1,1,1,0,-1,-1,-1,-1,-1,-1,-1,1,1},
+        {1,1,1,1,1,1,0,-1,-1,-1,-1,-1,-1,-1,1},
+        {1,1,1,1,1,1,1,0,-1,-1,-1,-1,-1,-1,-1},
+        {-1,1,1,1,1,1,1,1,0,-1,-1,-1,-1,-1,-1},
+        {-1,-1,1,1,1,1,1,1,1,0,-1,-1,-1,-1,-1},
+        {-1,-1,-1,1,1,1,1,1,1,1,0,-1,-1,-1,-1},
+        {-1,-1,-1,-1,1,1,1,1,1,1,1,0,-1,-1,-1},
+        {-1,-1,-1,-1,-1,1,1,1,1,1,1,1,0,-1,-1},
+        {-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,0,-1},
+        {-1,-1,-1,-1,-1,-1,-1,1,1,1,1,1,1,1,0}
     };
 
     public Jugador(String nombre) {
         this.nombre = nombre;
         this.puntos = 0;
-        this.piezas = new String[] { "Piedra", "Papel", "Tijera" };
+        this.piezas = new String[] { "Roca", "Pistola", "Rayo", "Diablo", "Dragón", "Agua", "Aire", "Papel", "Esponja",
+                "Lobo", "Árbol", "Humano", "Serpiente", "Tijeras", "Fuego" };
 
     }
 
@@ -24,7 +37,8 @@ public class Jugador {
         int suJugada = jugador.lanzamiento();
 
         System.out.println(
-                "[" + this.nombre + "] saca [" + piezas[miJugada] + "] / [" + jugador.nombre + "] saca [" + piezas[suJugada] + "]");
+                "[" + this.nombre + "] saca [" + piezas[miJugada] + "] / [" + jugador.nombre + "] saca ["
+                        + piezas[suJugada] + "]");
 
         int ganador = reglas[miJugada][suJugada];
 
@@ -47,7 +61,7 @@ public class Jugador {
     }
 
     private int lanzamiento() {
-        return (int) (Math.random() * 3);
+        return (int) (Math.random() * reglas.length);
     }
 
     public int partidasGanadas() {
