@@ -14,8 +14,8 @@ class PiedraPapelTijera {
         boolean hayGanador = false;
         do {
             jugadores[0].juegaCon(jugadores[1]);
-            hayGanador = jugadores[0].partidasGanadas() < 3 && jugadores[1].partidasGanadas() < 3;
-        } while (hayGanador);
+            hayGanador = jugadores[0].partidasGanadas() >= 3 || jugadores[1].partidasGanadas() >= 3;
+        } while (!hayGanador);
         jugadores[0].verEstadisticas();
         jugadores[1].verEstadisticas();
     }
