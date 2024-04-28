@@ -11,9 +11,11 @@ class PiedraPapelTijera {
     }
 
     public void jugar() {
+        boolean hayGanador = false;
         do {
             jugadores[0].juegaCon(jugadores[1]);
-        } while (jugadores[0].partidasGanadas() < 3 && jugadores[1].partidasGanadas() < 3);
+            hayGanador = jugadores[0].partidasGanadas() < 3 && jugadores[1].partidasGanadas() < 3;
+        } while (hayGanador);
         jugadores[0].verEstadisticas();
         jugadores[1].verEstadisticas();
     }
