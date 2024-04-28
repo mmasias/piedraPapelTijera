@@ -11,10 +11,10 @@ public class Jugador {
         this.nombre = nombre;
         this.puntos = 0;
         this.piezas = new String[] { "Piedra", "Papel", "Tijera" };
-        this.reglas = new int[] {
-            { 0, 1, 1 },
-            { -1, 0, -1 },
-            { -1, 1, 0 }
+        this.reglas = new int[][] {
+                { 0, 1, 1 },
+                { -1, 0, -1 },
+                { -1, 1, 0 }
         };
     }
 
@@ -24,7 +24,8 @@ public class Jugador {
         int suJugada = jugador.lanzamiento();
 
         System.out.println(
-                "[" + this.nombre + "] saca [" + piezas[miJugada] + "] / [" + jugador.nombre + "] saca [" + piezas[suJugada] + "]");
+                "[" + this.nombre + "] saca [" + piezas[miJugada] + "] / [" + jugador.nombre + "] saca ["
+                        + piezas[suJugada] + "]");
 
         int ganador = reglas[miJugada][suJugada];
 
@@ -58,5 +59,4 @@ public class Jugador {
         System.out.println("Jugador " + nombre);
         System.out.println(puntos + " puntos...");
     }
-
 }
